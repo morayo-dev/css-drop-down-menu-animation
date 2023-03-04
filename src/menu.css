@@ -59,6 +59,10 @@ header section {
 
 header h1 {
     color: #fff;
+    border: 7px solid #fff;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: #333 1px 5px 28px 4px;
 }
 
 /* HEADER STYLES ENDS */
