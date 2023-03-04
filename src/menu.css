@@ -1,0 +1,272 @@
+/* CSS RESETS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* RESET ENDS ------------------------------------------------------*/
+
+/* ---------------------------------------------------------------- */
+
+
+/* CSS VARIABLES */
+:root {
+    --HEADER-COLOR: #1e8fff6f;
+
+    --BG-COLOR: #333;
+
+    --MENU-ICON-WIDTH: 40px;
+    --MENU-ICON-RADIUS: 10px;
+    --MENU-ICON-HEIGHT: 7px;
+    --MENU-ICON-BG-COLOR: azure;
+    --MENU-ICON-BORDER: 1px solid azure:
+}
+
+/* ENDS------------------------------------------------------------- */
+
+/* GENERAL STYLES ---------------------------------------------------- */
+
+html {
+    font-size: 1.5rem;
+}
+
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+
+/* HEADER STYLES ==================================================*/
+
+header {
+    background-color: var(--HEADER-COLOR);
+}
+
+header section {
+    background-color: #1e8fff5e;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header h1 {
+    color: #fff;
+}
+
+/* HEADER STYLES ENDS */
+
+/* NAVBAR=================================================== */
+
+nav {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+nav ul {
+    list-style-type: none;
+    /* width: 100%; */
+    text-align: center;
+}
+
+nav ul li {
+    border-top: 2px solid #333;
+}
+
+nav a {
+    text-decoration: none;
+    display:block;
+    padding: 0.5rem;
+    color: #333;
+    width: 80%;
+    margin: auto;
+    font:bold 1.7rem monospace, sans-serif;
+    
+}
+
+li a:hover {
+    transform: scale(1.2);
+    transition: all 0.2s ease-in-out;
+} 
+
+nav ul:last-child {
+    border-bottom: 2px solid #333;
+}
+
+/* MENU STYLES====================================================== */
+
+.menu-button {
+    background-color: transparent;
+    width: 48px;
+    height: 48px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+    width: var(--MENU-ICON-WIDTH);
+    height: var(--MENU-ICON-HEIGHT);
+    background-color: var(--MENU-ICON-BG-COLOR);
+    border: var(--MENU-ICON-BORDER);
+    border-radius: var(--MENU-ICON-RADIUS);
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: "";
+}
+
+.menu-icon::before {
+    transform: translate(-20px, -12px);
+}
+
+.menu-icon::after {
+    transform: translate(-20px, 12px);
+}
+
+:is(header:hover, header:focus-within) .menu-icon {
+    background-color: transparent;
+    transform: rotate(360deg);
+    transition: all 0.5s;
+}
+
+
+
+:is(header:hover, header:focus) .menu-icon::before {
+    transform: translate(-20px, 0) rotate(-45deg);
+}
+
+:is(header:hover, header:focus) .menu-icon::after {
+    transform: translate(-20px, 0) rotate(45deg);
+}
+
+nav {
+    display: none;
+    transform-origin: top center;
+    animation: showMenu 0.5s ease-in-out forwards;
+
+}
+
+:is(header:hover, header:focus) nav {
+    display: block;
+}
+
+/* ANIMATIONS */
+
+
+@keyframes showMenu {
+
+    0% {
+        transform: scaleY(0)
+    }
+    
+    50% {
+        transform: scaleY(1.1)
+    }
+    
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(0, 0, 0, 0.656);
+    background-color: #1e8fff6a;
+
+}
+
+main div {
+    width: 150px;
+    height: 150px;
+    background: rgba(186, 117, 92, 0.626);
+    margin: 0.5rem;
+    border-radius: 30%;
+
+    display: grid;
+    place-content: center;
+
+}
+.hello h3 {
+    margin: 0 0.5rem;
+    border: 8px solid azure;
+    border-radius: 16px;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+main .hello {
+    position: absolute;
+    bottom: 150px;
+    animation: roll 14s ease-in-out alternate-reverse forwards infinite;
+    box-shadow: black 10px 5px 8px 20px;
+
+}
+
+@keyframes roll {
+
+    0% {
+        transform: translate(0);    
+    }
+
+    33% {
+        transform: translate(300px) rotate(180deg);
+    }
+
+    66% {
+        transform: translate(-300px, 0);
+    }
+
+    80% {
+        transform: translate(0) rotate(180deg);
+        border: none;
+    }
+
+    100% {
+        background-color: white;
+        color: #333;
+        border: none;
+        transform: translate(0) rotate(0);
+    }
+}
+
+
+footer {
+    background-color: #1e8fff9d;
+    color:azure;
+}
+
+footer h2 {
+    padding: 1rem;
+    font-size: 0.87rem;
+    text-align: center;
+}
+
+
+
+/* ENDS */
